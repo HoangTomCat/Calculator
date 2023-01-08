@@ -1,0 +1,48 @@
+body{
+    box-sizing: border-box;
+}
+
+.calculator-container{
+    width: 700px;
+    height: 650px;
+    border: 1px solid black;
+    margin: 0 auto;
+}
+/*display*/
+.display{
+    height: 30%;
+    border-bottom: 2px solid black;
+}
+.display .display-operation{
+    height: 30%;
+    border-bottom: 1px solid red;
+    padding: 12px
+}
+.display .display-number{
+    padding: 12px;
+    height: 70%;
+}
+/*button*/
+.button{
+    height: 70%;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr; /*chia thành 4 phần, phần số 3 phần, phần dấu 1 phần*/
+    grid-column-gap: 12px;
+}
+.button .button-function-key{
+    display:grid;
+    grid-row-gap: 12px;
+}
+.button .button-number{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 12px;
+    grid-row-gap: 12px;
+}
+.button .button-number #zero{
+    grid-column-start: 2;
+}
+.button .button-operation{
+    display: grid;
+    grid-row-gap:12px
+}
