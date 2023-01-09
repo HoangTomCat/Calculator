@@ -71,26 +71,24 @@ addButton.addEventListener("click",function(){
             a = myArray.join(''); // gán phần tử a số trước đó
             a = Number(a); // nếu nhập dấu trước thì hàm Number() sẽ trả về NaN (Not a Number)
         }
-        if(b===""){
-            /*Nếu trước đó có phép tính khác*/
-            if(signalOfSub === true){
-                for(let i=trackIndex;i<myArray.length;i+=1){
-                    b = b + myArray[i];
-                }
-                b = Number(b);
-                if(Number(b)){
-                    a = a - b;
-                    b = "";
-                    myArray = [];
-                    myArray.push(String(a));
-                }
-                else{
-                    myArray.pop(); //nếu b là dấu sẽ loại bỏ dấu đó
-                    b=""; //b đang ở trạng thái 0
-                }
-                signalOfSub = false; //xóa dấu - trước đó
+        if(signalOfSub === true){
+            for(let i=trackIndex;i<myArray.length;i+=1){
+                b = b + myArray[i];
             }
+            b = Number(b);
+            if(Number(b)){
+                a = a - b;
+                b = "";
+                myArray = [];
+                myArray.push(String(a));
+            }
+            else{
+                myArray.pop(); //nếu b là dấu sẽ loại bỏ dấu đó
+                b=""; //b đang ở trạng thái 0
+            }
+                signalOfSub = false; //xóa dấu - trước đó
         }
+        // }
         myArray.push("+"); // thêm dấu +
         checkOperation(myArray); //check khi đã nhập dấu
         trackIndex = myArray.length; // thêm đánh dấu cho phần tử b
@@ -140,26 +138,23 @@ subButton.addEventListener("click",function(){
             a = Number(a); // nếu nhập dấu trước thì hàm Number() sẽ trả về NaN (Not a Number)
         }
         console.log(`b: ${b}`);
-        if(b===""){
-            /*Nếu trước đó có phép tính khác*/
-            if(signalOfAdd === true){
-                for(let i=trackIndex;i<myArray.length;i+=1){
-                    b = b + myArray[i]; // sử dụng slice
-                }
-                console.log(`b:${b}`);
-                b = Number(b);
-                if(Number(b)){
-                    a = a + b;
-                    b = "";
-                    myArray=[];
-                    myArray.push(String(a));
-                }
-                else{ //nếu b là dấu cộng hay nói cách khác Number(b) là NaN : Not a Number
-                    myArray.pop();
-                    b = ""; 
-                }
-                signalOfAdd = false; //xóa dấu cộng trước đó
+        if(signalOfAdd === true){
+            for(let i=trackIndex;i<myArray.length;i+=1){
+                b = b + myArray[i]; // sử dụng slice
             }
+            console.log(`b:${b}`);
+            b = Number(b); //fix
+            if(Number(b)){
+                a = a + b;
+                b = "";
+                myArray=[];
+                myArray.push(String(a));
+            }
+            else{ //nếu b là dấu cộng hay nói cách khác Number(b) là NaN : Not a Number
+                myArray.pop();
+                b = ""; 
+            }
+            signalOfAdd = false; //xóa dấu cộng trước đó
         }
         myArray.push("-"); // thêm dấu +
         checkOperation(myArray); //check khi đã nhập dấu
